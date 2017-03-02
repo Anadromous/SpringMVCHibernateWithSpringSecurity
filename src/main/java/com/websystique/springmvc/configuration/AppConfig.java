@@ -27,10 +27,10 @@ public class AppConfig extends WebMvcConfigurerAdapter{
 	@Autowired
 	RoleToUserProfileConverter roleToUserProfileConverter;
 	
-	 @Override
+/*	 @Override
 	    public void addViewControllers(ViewControllerRegistry registry) {
 	        registry.addViewController("/").setViewName("home");
-	    }
+	    }*/
 
 	/**
      * Configure ViewResolvers to deliver preferred views.

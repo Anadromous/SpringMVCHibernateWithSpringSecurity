@@ -56,10 +56,13 @@ public class AppController {
 	@Autowired
 	AuthenticationTrustResolver authenticationTrustResolver;
 	
-    @RequestMapping(value = {"/home"})
-    public String homePage() {
-        return "home";
-    }
+	 
+	 @RequestMapping(value = { "/"}, method = RequestMethod.GET)
+	 public String homePage(ModelMap model) {
+	 
+		 return "home";
+	 }
+
 	
 	/**
 	 * This method will list all existing users.
@@ -214,7 +217,7 @@ public class AppController {
 			SecurityContextHolder.getContext().setAuthentication(null);
 		}
 		//return "redirect:/login?logout";
-		return "redirect:/home";
+		return "home";
 	}
 
 	/**
