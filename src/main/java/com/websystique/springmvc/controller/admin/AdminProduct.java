@@ -1,4 +1,4 @@
-package com.websystique.springmvc.controller.admin;
+ package com.websystique.springmvc.controller.admin;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,12 +9,13 @@ import java.nio.file.Paths;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +27,7 @@ import com.websystique.springmvc.model.Product;
 import com.websystique.springmvc.service.ProductService;
 
 /**
- * Created by Le on 1/24/2016.
+ * Created by pchapman on 1/24/2017.
  */
 
 @Controller
@@ -39,7 +40,7 @@ public class AdminProduct {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/product/addProduct")
+    @RequestMapping(value="/product/addProduct", method=RequestMethod.GET)
     public String addProduct(Model model) {
         Product product = new Product();
         product.setProductCategory("instrument");
@@ -51,10 +52,12 @@ public class AdminProduct {
         return "addProduct";
     }
 
+    @Secured("ADMIN")
     @RequestMapping(value="/product/addProduct", method = RequestMethod.POST)
-    public String addProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result,
+    public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result,
                                  HttpServletRequest request) {
         if(result.hasErrors()) {
+        	logger.info("addProductPost has errors...........");
             return "addProduct";
         }
         

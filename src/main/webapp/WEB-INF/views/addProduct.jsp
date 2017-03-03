@@ -9,8 +9,8 @@
             <p class="lead">Fill the below information to add a product:</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="post"
-                   commandName="product" enctype="multipart/form-data">
+        <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="POST"
+                   modelAttribute="product" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Name</label> <form:errors path="productName" cssStyle="color: #ff0000;" />
             <form:input path="productName" id="name" class="form-Control"/>
