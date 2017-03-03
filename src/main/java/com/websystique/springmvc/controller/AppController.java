@@ -26,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.websystique.springmvc.configuration.AppConfig;
 import com.websystique.springmvc.model.User;
 import com.websystique.springmvc.model.UserProfile;
 import com.websystique.springmvc.service.UserProfileService;

@@ -13,13 +13,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="APP_USER")
 public class User implements Serializable{
+
+	private static final long serialVersionUID = 4088177555722035961L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
@@ -43,6 +48,11 @@ public class User implements Serializable{
 	@NotEmpty
 	@Column(name="EMAIL", nullable=false)
 	private String email;
+	
+	@OneToOne
+    @JoinColumn(name = "cartId")
+    @JsonIgnore
+    private Cart cart;
 
 	@NotEmpty
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -98,6 +108,14 @@ public class User implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
 	public Set<UserProfile> getUserProfiles() {
 		return userProfiles;
