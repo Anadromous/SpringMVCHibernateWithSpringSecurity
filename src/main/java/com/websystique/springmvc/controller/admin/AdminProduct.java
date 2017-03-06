@@ -52,7 +52,6 @@ public class AdminProduct {
         return "addProduct";
     }
 
-    @Secured("ADMIN")
     @RequestMapping(value="/product/addProduct", method = RequestMethod.POST)
     public String addProduct(@Valid @ModelAttribute("product") Product product, BindingResult result,
                                  HttpServletRequest request) {

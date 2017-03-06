@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<div class="generic-container">
+	<div class="container-wrapper">
 		<%@include file="authheader.jsp" %>	
 		<div class="panel panel-default">
 			  <!-- Default panel contents -->

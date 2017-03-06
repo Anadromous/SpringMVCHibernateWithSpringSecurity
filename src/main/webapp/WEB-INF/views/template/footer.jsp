@@ -4,9 +4,6 @@
 
     <p>&copy; Redside, Inc. 2017 &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
 </footer>
-</div>
-
-</div><!-- /.container -->
 
 
 <!-- Bootstrap core JavaScript

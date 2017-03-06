@@ -3,6 +3,7 @@
 /* Padding below the footer and lighter body text */
 
 body {
+	margin: 20px;
   padding-bottom: 40px;
   color: #5a5a5a;
   background: whitesmoke;
@@ -33,7 +34,7 @@ body {
 
 }
 .navbar-wrapper .navbar .container {
-  width: auto;
+  width: 90%;
 }
 
 

@@ -1,6 +1,11 @@
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
+<head>
+<meta name="_csrf" content="${_csrf.token}"/>
+	<!-- default header name is X-CSRF-TOKEN -->
+	<meta name="_csrf_header" content="${_csrf.headerName}"/>
+</head>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -67,11 +72,12 @@
             <label class="control-label" for="productImage">Upload Picture</label>
             <form:input id="productImage" path="productImage" type="file" class="form:input-large" />
         </div>
-
+		<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
+		<sec:csrfInput disable="true"/>
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory" />" class="btn btn-default">Cancel</a>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        
         </form:form>
 
 

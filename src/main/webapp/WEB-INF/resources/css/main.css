@@ -1,4 +1,5 @@
 .container-wrapper {
+	width: 90%;
     height: 80%;
     margin: auto;
     margin-top: 80px;
@@ -23,8 +24,6 @@
 .table td {
     text-align: center;
     background: whitesmoke;
-
-    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
