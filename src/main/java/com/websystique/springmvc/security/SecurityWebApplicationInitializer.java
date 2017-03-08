@@ -9,6 +9,6 @@ public class SecurityWebApplicationInitializer extends AbstractSecurityWebApplic
 
 	@Override
 	protected void beforeSpringSecurityFilterChain(ServletContext servletContext) {
-		insertFilters(servletContext, new MultipartFilter());
+		//insertFilters(servletContext, new MultipartFilter());
 	}
 }

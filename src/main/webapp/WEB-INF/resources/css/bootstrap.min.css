@@ -4597,20 +4597,20 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	.navbar-collapse.in {
 		overflow-y: visible
 	}
-	.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse,
+	.navbar-fixed-bottom .navbar-collapse, . .navbar-collapse,
 		.navbar-static-top .navbar-collapse {
 		padding-right: 0;
 		padding-left: 0
 	}
 }
 
-.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+.navbar-fixed-bottom .navbar-collapse, . .navbar-collapse
 	{
 	max-height: 340px
 }
 
 @media ( max-device-width :480px) and (orientation:landscape) {
-	.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+	.navbar-fixed-bottom .navbar-collapse, . .navbar-collapse
 		{
 		max-height: 200px
 	}

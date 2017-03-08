@@ -350,6 +350,7 @@
 
 .navbar-fixed-bottom, .navbar-fixed-top, .navbar-static-top {
 	border-radius: 0
+	width: 
 }
 
 @media ( max-width :767px) {

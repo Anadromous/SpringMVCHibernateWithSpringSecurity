@@ -64,9 +64,12 @@ public class AdminProduct {
         productService.addProduct(product);
 
         MultipartFile productImage = product.getProductImage();
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\"+product.getProductId()+".png");
+        /*String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\"+product.getProductId()+".png");*/
+        path=Paths.get("C:\\apps\\SpringMVCHibernateWithSpringSecurity\\src\\main\\webapp\\WEB-INF\\resources\\prod_images\\"
+        		+product.getProductId()+".png");
 
+        logger.info("Path: "+path);
         if (productImage != null && !productImage.isEmpty()) {
             try {
                 productImage.transferTo(new File(path.toString()));
@@ -96,9 +99,12 @@ public class AdminProduct {
         }
 
         MultipartFile productImage = product.getProductImage();
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\"+product.getProductId()+".png");
-
+        /*String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\"+product.getProductId()+".png");*/
+        path=Paths.get("C:\\apps\\SpringMVCHibernateWithSpringSecurity\\src\\main\\webapp\\WEB-INF\\resources\\prod_images\\"
+        		+product.getProductId()+".png");
+        
+        logger.info("Path: "+path);
         if (productImage != null && !productImage.isEmpty()) {
             try {
                 productImage.transferTo(new File(path.toString()));
@@ -115,8 +121,10 @@ public class AdminProduct {
 
     @RequestMapping("/product/deleteProduct/{id}")
     public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request) {
-        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id + ".png");
+        /*String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+        path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id + ".png");*/
+        path=Paths.get("C:\\apps\\SpringMVCHibernateWithSpringSecurity\\src\\main\\webapp\\WEB-INF\\resource\\prod_images\\"
+        		+id+".png");
 
         if (Files.exists(path)) {
             try {
