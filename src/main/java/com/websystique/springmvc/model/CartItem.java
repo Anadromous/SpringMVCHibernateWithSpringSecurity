@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Created by Le on 1/11/2016.
+ * Created by pchapman on 1/11/2017.
  */
 @Entity
 public class CartItem implements Serializable{
@@ -19,7 +19,7 @@ public class CartItem implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "cartId")
-    @JsonIgnore
+    @JsonIgnore//prevents looping and confusion with relationships
     private Cart cart;
     
     @ManyToOne
