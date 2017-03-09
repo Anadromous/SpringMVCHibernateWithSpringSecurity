@@ -13,6 +13,8 @@ import javax.persistence.Table;
 @Table(name="USER_PROFILE")
 public class UserProfile implements Serializable{
 
+	private static final long serialVersionUID = 1649687697818218935L;
+
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;	
 

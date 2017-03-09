@@ -1,16 +1,15 @@
-package com.websystique.springmvc.dao;
+package com.websystique.springmvc.dao.impl;
 
 
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.websystique.springmvc.dao.AbstractDao;
+import com.websystique.springmvc.dao.ProductDao;
 import com.websystique.springmvc.model.Product;
 
 /**
@@ -22,9 +21,6 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 
 	static final Logger logger = LoggerFactory.getLogger(ProductDaoImpl.class);
 	
-    @Autowired
-    private SessionFactory sessionFactory;
-
     public Product getProductById (int id) {
         Product product = getByKey(id);
         return product;
@@ -32,7 +28,6 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
 
     public List<Product> getProductList() {
     	logger.info("getProductList()...");
-        
     	Criteria crit = createEntityCriteria();
 		//crit.addOrder(Order.asc("type"));
 		return (List<Product>)crit.list();
@@ -43,14 +38,10 @@ public class ProductDaoImpl extends AbstractDao<Integer, Product> implements Pro
     }
 
     public void editProduct (Product product) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(product);
-        session.flush();
+        saveOrUpdate(product);
     }
 
     public void deleteProduct (Product product) {
-        Session session = sessionFactory.getCurrentSession();
-        session.delete(product);
-        session.flush();
+        delete(product);
     }
 }

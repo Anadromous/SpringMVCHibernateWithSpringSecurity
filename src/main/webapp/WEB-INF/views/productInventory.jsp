@@ -2,6 +2,15 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
+<script>
+    $(document).ready(function(){
+
+        $('.table').DataTable({
+            "lengthMenu": [[1,2,3,5,10,-1], [1,2,3,5,10, "All"]]
+        });
+    });
+
+</script>
 
 <div class="container-wrapper">
     <div class="container">
@@ -24,7 +33,7 @@
             </thead>
             <c:forEach items="${products}" var="product">
                 <tr>
-                    <td><img src="<c:url value="/resources/prod_images/${product.productId}.png" /> " alt="image"
+                    <td><img src="<c:url value="/resources/images/${product.productId}.png" /> " alt="image"
                              style="width:100%"/></td>
                     <td>${product.productName}</td>
                     <td>${product.productCategory}</td>

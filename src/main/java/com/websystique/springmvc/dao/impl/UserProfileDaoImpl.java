@@ -1,4 +1,4 @@
-package com.websystique.springmvc.dao;
+package com.websystique.springmvc.dao.impl;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.websystique.springmvc.dao.AbstractDao;
+import com.websystique.springmvc.dao.UserProfileDao;
 import com.websystique.springmvc.model.UserProfile;
 
 

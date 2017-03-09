@@ -1,4 +1,4 @@
-package com.websystique.springmvc.dao;
+package com.websystique.springmvc.dao.impl;
 
 import java.util.Date;
 

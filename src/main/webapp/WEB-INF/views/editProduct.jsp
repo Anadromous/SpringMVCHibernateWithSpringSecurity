@@ -22,9 +22,9 @@
         <div class="form-group">
             <label for="category">Category</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="instrument" />Instrument</label>
+                                                             value="instrument" />Boat</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="record" />Record</label>
+                                                             value="record" />Gear</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
                                                              value="accessory" />Accessory</label>
         </div>

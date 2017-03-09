@@ -18,8 +18,6 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
 @Table(name="APP_USER")
 public class User implements Serializable{
@@ -36,23 +34,12 @@ public class User implements Serializable{
 	@NotEmpty
 	@Column(name="PASSWORD", nullable=false)
 	private String password;
-		
-	@NotEmpty
-	@Column(name="FIRST_NAME", nullable=false)
-	private String firstName;
-
-	@NotEmpty
-	@Column(name="LAST_NAME", nullable=false)
-	private String lastName;
-
-	@NotEmpty
-	@Column(name="EMAIL", nullable=false)
-	private String email;
+	
+	@Column(name="ENABLED")
+	private boolean enabled;
 	
 	@OneToOne
-    @JoinColumn(name = "cartId")
-    @JsonIgnore
-    private Cart cart;
+    private Customer customer;
 
 	@NotEmpty
 	@ManyToMany(fetch = FetchType.LAZY)
@@ -85,38 +72,6 @@ public class User implements Serializable{
 		this.password = password;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public Cart getCart() {
-        return cart;
-    }
-
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
-
 	public Set<UserProfile> getUserProfiles() {
 		return userProfiles;
 	}
@@ -124,6 +79,22 @@ public class User implements Serializable{
 	public void setUserProfiles(Set<UserProfile> userProfiles) {
 		this.userProfiles = userProfiles;
 	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
 	@Override
 	public int hashCode() {
@@ -162,9 +133,7 @@ public class User implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password
-				+ ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + "]";
+		return "User [id=" + id + ", ssoId=" + ssoId + ", password=" + password+"]";
 	}
 
 

@@ -23,9 +23,9 @@ public class Cart implements Serializable {
     private List<CartItem> cartItems;
     
     @OneToOne
-    @JoinColumn(name = "SSO_ID")
+    @JoinColumn(name = "customerId")
     @JsonIgnore
-    private User user;
+    private Customer customer;
     
     @Column(name="grand_total")
     private double grandTotal;
@@ -46,15 +46,15 @@ public class Cart implements Serializable {
         this.cartItems = cartItems;
     }
 
-    public User getUser() {
-        return user;
-    }
+    public Customer getCustomer() {
+		return customer;
+	}
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
-    public double getGrandTotal() {
+	public double getGrandTotal() {
         return grandTotal;
     }
 

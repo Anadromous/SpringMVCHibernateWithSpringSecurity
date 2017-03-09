@@ -1,11 +1,7 @@
-<%@include file="/WEB-INF/views/template/header.jsp" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
-<head>
-<meta name="_csrf" content="${_csrf.token}"/>
-	<!-- default header name is X-CSRF-TOKEN -->
-	<meta name="_csrf_header" content="${_csrf.headerName}"/>
-</head>
+<%@include file="/WEB-INF/views/template/header.jsp" %>
+
+
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -14,8 +10,8 @@
             <p class="lead">Fill the below information to add a product:</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="POST"
-                   modelAttribute="product" enctype="multipart/form-data">
+        <form:form action="${pageContext.request.contextPath}/admin/product/addProduct" method="post"
+                   commandName="product" enctype="multipart/form-data">
         <div class="form-group">
             <label for="name">Name</label> <form:errors path="productName" cssStyle="color: #ff0000;" />
             <form:input path="productName" id="name" class="form-Control"/>
@@ -24,9 +20,9 @@
         <div class="form-group">
             <label for="category">Category</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="instrument" />WaterCraft</label>
+                                                             value="instrument" />Boat</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="record" />Equipment</label>
+                                                             value="record" />Gear</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
                                                              value="accessory" />Accessory</label>
         </div>
@@ -72,12 +68,10 @@
             <label class="control-label" for="productImage">Upload Picture</label>
             <form:input id="productImage" path="productImage" type="file" class="form:input-large" />
         </div>
-		<%-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> --%>
-		<sec:csrfInput disable="true"/>
+
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory" />" class="btn btn-default">Cancel</a>
-        
         </form:form>
 
 
