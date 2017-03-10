@@ -7,7 +7,7 @@ import com.websystique.springmvc.model.Customer;
 
 public interface CustomerService {
 	
-    void addCustomer (Customer customer);
+    Customer addCustomer (Customer customer);
 
     Customer getCustomerById (int customerId);
 

@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
 import java.io.Serializable;
 
 /**
- * Created by Le on 1/24/2016.
+ * Created by pchapman on 1/24/2017.
  */
 
 @Entity(name="BILLING_ADDRESS")
@@ -18,7 +18,7 @@ public class BillingAddress implements Serializable{
     private static final long serialVersionUID = -6091579459463730482L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)    
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    
     @Column(name="billing_id")
     private int billingAddressId;
     

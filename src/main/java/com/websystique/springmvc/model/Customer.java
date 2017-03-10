@@ -16,7 +16,7 @@ public class Customer implements Serializable{
     private static final long serialVersionUID = 5140900014886997914L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="customer_id")
     private int customerId;
     
@@ -27,22 +27,17 @@ public class Customer implements Serializable{
 	@NotEmpty
 	@Column(name="last_name", nullable=false)
 	private String lastName;
+	
+	@NotEmpty
+	@Column(name="SSO_ID", unique=true, nullable=false)
+	private String ssoId;
 
     @NotEmpty (message = "The customer email must not be null.")
     @Column(name="email")
     private String customerEmail;
+    
+    @Column(name="phone")
     private String customerPhone;
-
-    @NotEmpty (message = "The customer username must not be null.")
-    @Column(name="user_name")
-    private String username;
-
-    @NotEmpty (message = "The customer password must not be null.")
-    @Column(name="password")
-    private String password;
-
-    @Column(name="enabled")
-    private boolean enabled;
 
     @OneToOne
     @JoinColumn(name="billing_id")
@@ -86,6 +81,14 @@ public class Customer implements Serializable{
 		this.lastName = lastName;
 	}
 
+	public String getSsoId() {
+		return ssoId;
+	}
+
+	public void setSsoId(String ssoId) {
+		this.ssoId = ssoId;
+	}
+
 	public String getCustomerEmail() {
         return customerEmail;
     }
@@ -100,30 +103,6 @@ public class Customer implements Serializable{
 
     public void setCustomerPhone(String customerPhone) {
         this.customerPhone = customerPhone;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
     }
 
     public BillingAddress getBillingAddress() {
@@ -165,6 +144,58 @@ public class Customer implements Serializable{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((customerEmail == null) ? 0 : customerEmail.hashCode());
+		result = prime * result + customerId;
+		result = prime * result + ((customerPhone == null) ? 0 : customerPhone.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Customer))
+			return false;
+		Customer other = (Customer) obj;
+		if (customerEmail == null) {
+			if (other.customerEmail != null)
+				return false;
+		} else if (!customerEmail.equals(other.customerEmail))
+			return false;
+		if (customerId != other.customerId)
+			return false;
+		if (customerPhone == null) {
+			if (other.customerPhone != null)
+				return false;
+		} else if (!customerPhone.equals(other.customerPhone))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", SSOID=" + ssoId + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", customerEmail=" + customerEmail + ", customerPhone=" + customerPhone + "]";
 	}
     
 }

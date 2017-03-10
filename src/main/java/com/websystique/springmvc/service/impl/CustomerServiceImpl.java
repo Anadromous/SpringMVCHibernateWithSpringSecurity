@@ -21,8 +21,8 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerDao customerDao;
 
-    public void addCustomer (Customer customer) {
-        customerDao.addCustomer(customer);
+    public Customer addCustomer (Customer customer) {
+        return customerDao.addCustomer(customer);
     }
 
     public Customer getCustomerById(int customerId) {

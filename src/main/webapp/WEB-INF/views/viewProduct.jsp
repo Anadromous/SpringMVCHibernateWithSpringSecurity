@@ -7,15 +7,14 @@
     <div class="container">
         <div class="page-header">
             <h1>Product Detail</h1>
-
-            <p class="lead">Here is the detail information of the product!        System.out.println(path);
+            <p class="lead">Here is the detail information for the ${product.productName}.
             </p>
         </div>
 
         <div class="container" ng-app = "cartApp">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="<c:url value="/resources/images/${product.productId}.png" /> " alt="image"
+                    <img src="<c:url value="/resources/prod_images/${product.productId}.png" /> " alt="image"
                              style="width:100%"/>
                 </div>
 

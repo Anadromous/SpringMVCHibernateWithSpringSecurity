@@ -17,7 +17,7 @@ body {
 /* PMC Navbar */
 .navbar {
 	position: relative;
-	min-height: 80px;
+	min-height: 120px;
 	margin-bottom: 0;
 	border-bottom: 1px solid #008000;
 	border-bottom-color: #008000
@@ -39,6 +39,17 @@ body {
 	padding: 15px 15px;
 	font-size: 16px;
 	line-height: 20px
+}
+
+/* PMC navbar text */
+.navbar-default {
+	background-color: #408080;
+	border-color: #408080;
+}
+
+/* PMC navbar text */
+.navbar-default .navbar-nav>li>a {
+	color: #ffffff
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
@@ -4910,10 +4921,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	}
 }
 
-.navbar-default {
-	background-color: #408080;
-	border-color: #e7e7e7
-}
+
 
 .navbar-default .navbar-brand {
 	color: #ffffff
@@ -4929,10 +4937,6 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	color: #ffffff
 }
 
-/* PMC navbar text */
-.navbar-default .navbar-nav>li>a {
-	color: #ffffff
-}
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover
 	{

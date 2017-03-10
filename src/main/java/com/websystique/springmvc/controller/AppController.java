@@ -62,8 +62,7 @@ public class AppController {
 	
 	 
 	 @RequestMapping(value = { "/"}, method = RequestMethod.GET)
-	 public String homePage(ModelMap model) {
-	 
+	 public String homePage(ModelMap model) {	 
 		 return "home";
 	 }
 
@@ -73,7 +72,7 @@ public class AppController {
 	 */
 	@RequestMapping(value = {"/list" }, method = RequestMethod.GET)
 	public String listUsers(ModelMap model) {
-
+		logger.info("Getting user list...");
 		List<User> users = userService.findAllUsers();
 		model.addAttribute("users", users);
 		model.addAttribute("loggedinuser", getPrincipal());
@@ -120,9 +119,6 @@ public class AppController {
 			return "registration";
 		}
 		
-		Customer customer = new Customer();
-		customerService.addCustomer(customer);
-		user.setCustomer(customer);
 		userService.saveUser(user);
 
 		model.addAttribute("success", "User " + user.getSsoId() + " registered successfully");
@@ -219,14 +215,17 @@ public class AppController {
 	 */
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logoutPage (HttpServletRequest request, HttpServletResponse response){
+		logger.info("LOGGING OUT NOW.,.,...");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null){    
 			//new SecurityContextLogoutHandler().logout(request, response, auth);
 			persistentTokenBasedRememberMeServices.logout(request, response, auth);
 			SecurityContextHolder.getContext().setAuthentication(null);
 		}
+		logger.info("SHOULD BE RETURNING HOME......");
 		//return "redirect:/login?logout";
-		return "home";
+		//return "redirect:/home";
+		return "/";
 	}
 
 	/**

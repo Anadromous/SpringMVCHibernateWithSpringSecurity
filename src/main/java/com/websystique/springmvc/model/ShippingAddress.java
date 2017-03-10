@@ -18,7 +18,7 @@ public class ShippingAddress implements Serializable{
     private static final long serialVersionUID = 989191150380037359L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="shipping_id")
     private int shippingAddressId;
     

@@ -2,21 +2,30 @@ package com.websystique.springmvc.service.impl;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.websystique.springmvc.dao.UserDao;
+import com.websystique.springmvc.model.Customer;
 import com.websystique.springmvc.model.User;
+import com.websystique.springmvc.service.CustomerService;
 import com.websystique.springmvc.service.UserService;
 
 @Service("userService")
 @Transactional
 public class UserServiceImpl implements UserService{
+	
+	static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	CustomerService customerService;
 
 	@Autowired
     private PasswordEncoder passwordEncoder;
@@ -31,6 +40,16 @@ public class UserServiceImpl implements UserService{
 	}
 
 	public void saveUser(User user) {
+		
+		logger.info("User:newUser- "+user.toString());
+		logger.info("Customer:User -"+user.getCustomer().toString());
+		
+		//add the customer to get it's id...
+		
+		user.getCustomer().setSsoId(user.getSsoId());
+		Customer c = customerService.addCustomer(user.getCustomer());
+		user.setCustomer(c);
+		user.setEnabled(true);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		userDao.save(user);
 	}

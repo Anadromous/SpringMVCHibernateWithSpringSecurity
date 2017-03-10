@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.websystique.springmvc.dao.AbstractDao;
 import com.websystique.springmvc.dao.CustomerDao;
@@ -20,18 +19,12 @@ import com.websystique.springmvc.model.User;
 @Repository("customerDao")
 public class CustomerDaoImpl extends AbstractDao<Integer, Customer> implements CustomerDao{
 
-    public void addCustomer(Customer customer) {
+    public Customer addCustomer(Customer customer) {
 
         customer.getBillingAddress().setCustomer(customer);
         customer.getShippingAddress().setCustomer(customer);
-        User user = customer.getUser();
-        user.setCustomer(customer);
-        user.setSsoId(customer.getUsername());
-        user.setPassword(customer.getPassword());
-        user.setEnabled(true);
 
         saveOrUpdate(customer);
-        getSession().saveOrUpdate(user);
         getSession().saveOrUpdate(customer.getBillingAddress());
         getSession().saveOrUpdate(customer.getShippingAddress());
 
@@ -40,8 +33,10 @@ public class CustomerDaoImpl extends AbstractDao<Integer, Customer> implements C
         customer.setCart(newCart);
         saveOrUpdate(customer);
         getSession().saveOrUpdate(newCart);
-
         getSession().flush();
+        
+        return getCustomerByUsername(customer.getSsoId());
+        
     }
 
     public Customer getCustomerById (int customerId) {
@@ -56,7 +51,7 @@ public class CustomerDaoImpl extends AbstractDao<Integer, Customer> implements C
 
     public Customer getCustomerByUsername (String username) {
     	Criteria crit = createEntityCriteria();
-    	crit.add(Restrictions.eq("username", username));
+    	crit.add(Restrictions.eq("ssoId", username));
         return (Customer) crit.uniqueResult();
     }
 }

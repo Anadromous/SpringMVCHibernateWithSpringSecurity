@@ -52,6 +52,7 @@ public class RegisterController {
 
         List<Customer> customerList=customerService.getAllCustomers();
 
+        //TODO this is an expensive way to do this - how about Comparator?
         for (int i=0; i< customerList.size(); i++) {
             if(customer.getCustomerEmail().equals(customerList.get(i).getCustomerEmail())) {
                 model.addAttribute("emailMsg", "Email already exists");
@@ -59,14 +60,13 @@ public class RegisterController {
                 return "registerCustomer";
             }
 
-            if(customer.getUsername().equals(customerList.get(i).getUsername())) {
+            if(customer.getUser().getSsoId().equals(customerList.get(i).getUser().getSsoId())) {
                 model.addAttribute("usernameMsg", "Username already exists");
 
                 return "registerCustomer";
             }
         }
 
-        customer.setEnabled(true);
         customerService.addCustomer(customer);
 
         return "registerCustomerSuccess";
