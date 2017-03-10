@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * Created by Le on 1/2/2016.
+ * Created by pchapman on 1/2/2016.
  */
 
 @Entity(name="PRODUCT")
@@ -30,6 +30,7 @@ public class Product implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="product_id")
     private int productId;
     
     @NotEmpty (message = "The product name must not be null.")

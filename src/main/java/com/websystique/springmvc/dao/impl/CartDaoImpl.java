@@ -2,8 +2,6 @@ package com.websystique.springmvc.dao.impl;
 
 import java.io.IOException;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +15,7 @@ import com.websystique.springmvc.service.CustomerOrderService;
  * Created by pchapman on 1/25/2017.
  */
 
-@Repository
-@Transactional
+@Repository("cartDao")
 public class CartDaoImpl extends AbstractDao<Integer, Cart> implements CartDao{
 
     @Autowired

@@ -7,6 +7,7 @@ import com.websystique.springmvc.model.Product;
 /**
  * Created by pchapman on 1/24/2016.
  */
+
 public interface ProductService {
 
     List<Product> getProductList();

@@ -17,8 +17,7 @@ import com.websystique.springmvc.model.User;
  * Created by pchapman on 1/25/2017.
  */
 
-@Repository
-@Transactional
+@Repository("customerDao")
 public class CustomerDaoImpl extends AbstractDao<Integer, Customer> implements CustomerDao{
 
     public void addCustomer(Customer customer) {

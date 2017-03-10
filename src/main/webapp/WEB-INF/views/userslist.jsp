@@ -37,9 +37,9 @@
 	    		<tbody>
 				<c:forEach items="${users}" var="user">
 					<tr>
-						<td>${user.firstName}</td>
-						<td>${user.lastName}</td>
-						<td>${user.email}</td>
+						<td>${user.customer.firstName}</td>
+						<td>${user.customer.lastName}</td>
+						<td>${user.customer.customerEmail}</td>
 						<td>${user.ssoId}</td>
 					    <sec:authorize access="hasRole('ADMIN') or hasRole('DBA')">
 							<td><a href="<c:url value='/edit-user-${user.ssoId}' />" class="btn btn-success custom-width">edit</a></td>

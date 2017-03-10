@@ -1,4 +1,4 @@
-package com.websystique.springmvc.service;
+package com.websystique.springmvc.service.impl;
 
 import java.util.List;
 
@@ -8,9 +8,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.websystique.springmvc.dao.ProductDao;
 import com.websystique.springmvc.model.Product;
+import com.websystique.springmvc.service.ProductService;
 
 /**
- * Created by pchapman on 1/24/2016.
+ * Created by pchapman on 1/24/2017.
  */
 
 @Service("productService")

@@ -26,8 +26,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.websystique.springmvc.model.Customer;
 import com.websystique.springmvc.model.User;
 import com.websystique.springmvc.model.UserProfile;
+import com.websystique.springmvc.service.CustomerService;
 import com.websystique.springmvc.service.UserProfileService;
 import com.websystique.springmvc.service.UserService;
 
@@ -42,6 +44,9 @@ public class AppController {
 	
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	CustomerService customerService;
 	
 	@Autowired
 	UserProfileService userProfileService;
@@ -81,6 +86,8 @@ public class AppController {
 	@RequestMapping(value = { "/newuser" }, method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		User user = new User();
+		Customer customer = new Customer();
+		user.setCustomer(customer);
 		model.addAttribute("user", user);
 		model.addAttribute("edit", false);
 		model.addAttribute("loggedinuser", getPrincipal());
@@ -113,6 +120,9 @@ public class AppController {
 			return "registration";
 		}
 		
+		Customer customer = new Customer();
+		customerService.addCustomer(customer);
+		user.setCustomer(customer);
 		userService.saveUser(user);
 
 		model.addAttribute("success", "User " + user.getSsoId() + " registered successfully");

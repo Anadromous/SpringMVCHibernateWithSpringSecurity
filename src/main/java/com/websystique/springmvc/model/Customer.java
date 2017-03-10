@@ -16,15 +16,16 @@ public class Customer implements Serializable{
     private static final long serialVersionUID = 5140900014886997914L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="customer_id")
     private int customerId;
     
     @NotEmpty
-	@Column(name="FIRST_NAME", nullable=false)
+	@Column(name="first_name", nullable=false)
 	private String firstName;
 
 	@NotEmpty
-	@Column(name="LAST_NAME", nullable=false)
+	@Column(name="last_name", nullable=false)
 	private String lastName;
 
     @NotEmpty (message = "The customer email must not be null.")
@@ -44,20 +45,20 @@ public class Customer implements Serializable{
     private boolean enabled;
 
     @OneToOne
-    @JoinColumn(name="billingAddressId")
+    @JoinColumn(name="billing_id")
     private BillingAddress billingAddress;
 
     @OneToOne
-    @JoinColumn(name="shippingAddressId")
+    @JoinColumn(name="shipping_id")
     private ShippingAddress shippingAddress;
 
     @OneToOne
-    @JoinColumn(name = "cartId")
+    @JoinColumn(name = "cart_id")
     @JsonIgnore
     private Cart cart;
     
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
 
@@ -126,6 +127,9 @@ public class Customer implements Serializable{
     }
 
     public BillingAddress getBillingAddress() {
+    	if(billingAddress == null){
+    		billingAddress = new BillingAddress();
+    	}
         return billingAddress;
     }
 
@@ -134,6 +138,9 @@ public class Customer implements Serializable{
     }
 
     public ShippingAddress getShippingAddress() {
+    	if(shippingAddress == null){
+    		shippingAddress = new ShippingAddress();
+    	}
         return shippingAddress;
     }
 
@@ -150,6 +157,9 @@ public class Customer implements Serializable{
     }
 
 	public User getUser() {
+		if(user == null){
+			user = new User();
+		}
 		return user;
 	}
 

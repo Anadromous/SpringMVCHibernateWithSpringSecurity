@@ -13,23 +13,24 @@ public class CustomerOrder implements Serializable{
     private static final long serialVersionUID = 2983360377227484514L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="order_id")
     private int customerOrderId;
 
     @OneToOne
-    @JoinColumn(name = "cartId")
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
     @OneToOne
-    @JoinColumn(name = "customerId")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToOne
-    @JoinColumn(name = "billingAddressId")
+    @JoinColumn(name = "billing_id")
     private BillingAddress billingAddress;
 
     @OneToOne
-    @JoinColumn(name="shippingAddressId")
+    @JoinColumn(name="shipping_id")
     private ShippingAddress shippingAddress;
 
     public int getCustomerOrderId() {

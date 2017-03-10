@@ -15,15 +15,16 @@ public class CartItem implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="cart_item_id")
     private int cartItemId;
     
     @ManyToOne
-    @JoinColumn(name = "cartId")
+    @JoinColumn(name = "cart_id")
     @JsonIgnore//prevents looping and confusion with relationships
     private Cart cart;
     
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private Product product;
     
     @Column(name="quantity")

@@ -1,7 +1,9 @@
 package com.websystique.springmvc.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
@@ -16,13 +18,26 @@ public class ShippingAddress implements Serializable{
     private static final long serialVersionUID = 989191150380037359L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="shipping_id")
     private int shippingAddressId;
+    
+    @Column(name="street")
     private String streetName;
+    
+    @Column(name="apt_number")
     private String apartmentNumber;
+    
+    @Column(name="city")
     private String city;
+    
+    @Column(name="state")
     private String state;
+    
+    @Column(name="country")
     private String country;
+    
+    @Column(name="zip")
     private String zipCode;
 
     @OneToOne

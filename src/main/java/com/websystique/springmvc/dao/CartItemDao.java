@@ -4,7 +4,7 @@ import com.websystique.springmvc.model.Cart;
 import com.websystique.springmvc.model.CartItem;
 
 /**
- * Created by Le on 1/25/2016.
+ * Created by pchapman on 1/25/2017.
  */
 public interface CartItemDao {
 
