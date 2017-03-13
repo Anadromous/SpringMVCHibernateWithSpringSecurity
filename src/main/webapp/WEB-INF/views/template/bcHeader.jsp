@@ -66,7 +66,7 @@
 					<sec:authorize access="authenticated" var="authenticated"></sec:authorize>
 					<c:choose>
 						<c:when test="${authenticated}">
-							<li class="navbar-text">Welcome <sec:authentication property="name" /></li>
+							<li class="navbar pmc-navbar-text">Welcome <sec:authentication property="name" /></li>
 							<li><a href="<c:url value="/logout" />">Logout</a></li>
 						</c:when>
 						<c:otherwise>

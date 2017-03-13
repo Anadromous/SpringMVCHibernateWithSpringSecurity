@@ -2,10 +2,12 @@ package com.websystique.springmvc.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,6 +33,8 @@ import com.websystique.springmvc.service.ProductService;
 @RequestMapping("/rest/cart")
 public class CartResources {
 
+	static final Logger logger = LoggerFactory.getLogger(CartResources.class);
+			
     @Autowired
     private CartService cartService;
 
@@ -46,18 +50,19 @@ public class CartResources {
     @RequestMapping("/{cartId}")
     public @ResponseBody
     Cart getCartById (@PathVariable(value = "cartId") int cartId) {
+    	logger.info("CartResources.getCartById...");
         return cartService.getCartById(cartId);
     }
 
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void addItem (@PathVariable(value ="productId") int productId, @AuthenticationPrincipal User activeUser) {
-
+    	logger.info("CartResources.addItem...");
         Customer customer = customerService.getCustomerByUsername(activeUser.getUsername());
         Cart cart = customer.getCart();
         Product product = productService.getProductById(productId);
         List<CartItem> cartItems = cart.getCartItems();
-
+        logger.info("CartResources.cartItems.size()..."+cartItems.size());
         for (int i=0; i<cartItems.size(); i++) {
             if(product.getProductId()==cartItems.get(i).getProduct().getProductId()){
                 CartItem cartItem = cartItems.get(i);
@@ -80,6 +85,7 @@ public class CartResources {
     @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void removeItem (@PathVariable(value = "productId") int productId) {
+    	logger.info("CartResources.removeItem...");
         CartItem cartItem = cartItemService.getCartItemByProductId(productId);
         cartItemService.removeCartItem(cartItem);
 
@@ -88,6 +94,7 @@ public class CartResources {
     @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void clearCart(@PathVariable(value = "cartId") int cartId) {
+    	logger.info("CartResources.clearCart...");
         Cart cart = cartService.getCartById(cartId);
         cartItemService.removeAllCartItems(cart);
     }

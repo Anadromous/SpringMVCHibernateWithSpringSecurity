@@ -3,19 +3,24 @@ package com.websystique.springmvc.configuration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.webflow.config.AbstractFlowConfiguration;
 import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.executor.FlowExecutor;
+import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
 import org.springframework.webflow.mvc.servlet.FlowHandlerMapping;
 import org.springframework.webflow.security.SecurityFlowExecutionListener;
 
 @Configuration
-public class WebFlowConfig extends AbstractFlowConfiguration {
+public class FlowConfiguration extends AbstractFlowConfiguration {
 
 	@Autowired
 	private AppConfig webMvcConfig;
-
+	
+	@Autowired
+	Validator validator;
+	
 	@Bean
 	public FlowExecutor flowExecutor() {
 		return getFlowExecutorBuilder(flowRegistry())
@@ -35,6 +40,13 @@ public class WebFlowConfig extends AbstractFlowConfiguration {
 		FlowHandlerMapping flow = new FlowHandlerMapping();
 		flow.setFlowRegistry(flowRegistry());
 		return flow;
+	}
+	
+	@Bean
+	public FlowHandlerAdapter flowHandlerAdapter(){
+		FlowHandlerAdapter fh = new FlowHandlerAdapter();
+		fh.setFlowExecutor(flowExecutor());
+		return fh;
 	}
 
 	@Bean

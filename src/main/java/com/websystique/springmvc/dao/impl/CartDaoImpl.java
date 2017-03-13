@@ -2,9 +2,10 @@ package com.websystique.springmvc.dao.impl;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.websystique.springmvc.dao.AbstractDao;
 import com.websystique.springmvc.dao.CartDao;
@@ -17,6 +18,8 @@ import com.websystique.springmvc.service.CustomerOrderService;
 
 @Repository("cartDao")
 public class CartDaoImpl extends AbstractDao<Integer, Cart> implements CartDao{
+	
+	static final Logger logger = LoggerFactory.getLogger(CartDaoImpl.class);
 
     @Autowired
     private CustomerOrderService customerOrderService;
@@ -30,8 +33,8 @@ public class CartDaoImpl extends AbstractDao<Integer, Cart> implements CartDao{
         int cartId = cart.getCartId();
         double grandTotal = customerOrderService.getCustomerOrderGrandTotal(cartId);
         cart.setGrandTotal(grandTotal);
-
-        update(cart);
+        logger.info("Updating cart: "+cart.toString());
+        saveOrUpdate(cart);
     }
 
     public Cart validate(int cartId) throws IOException {
