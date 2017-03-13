@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -11,7 +11,45 @@ html {
 }
 
 body {
-	margin: 0
+	margin: 20px;
+}
+
+/* PMC Navbar */
+.navbar {
+	position: relative;
+	min-height: 120px;
+	margin-bottom: 0;
+	border-bottom: 1px solid #008000;
+	border-bottom-color: #008000
+}
+
+/* PMC Header text */
+.navbar-text {
+	float: left;
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 16px;
+	line-height: 20px
+}
+
+/* PMC Header text */
+.navbar-text-right {
+	float: right;
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 16px;
+	line-height: 20px
+}
+
+/* PMC navbar text */
+.navbar-default {
+	background-color: #408080;
+	border-color: #408080;
+}
+
+/* PMC navbar text */
+.navbar-default .navbar-nav>li>a {
+	color: #ffffff
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
@@ -1368,6 +1406,7 @@ a:focus, a:hover {
 }
 
 a:focus {
+	outline: thin dotted;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px
 }
@@ -2660,7 +2699,7 @@ table td[class*=col-], table th[class*=col-] {
 	.table>tfoot>tr>td.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td,
 	.table>thead>tr.active>th, .table>thead>tr>td.active, .table>thead>tr>th.active
 	{
-	background-color: #f5f5f5
+	background-color: #ffffff
 }
 
 .table-hover>tbody>tr.active:hover>td, .table-hover>tbody>tr.active:hover>th,
@@ -2827,6 +2866,7 @@ select[multiple], select[size] {
 
 input[type=file]:focus, input[type=checkbox]:focus, input[type=radio]:focus
 	{
+	outline: thin dotted;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px
 }
@@ -3334,6 +3374,7 @@ select[multiple].input-lg, textarea.input-lg {
 
 .btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus,
 	.btn:active:focus, .btn:focus {
+	outline: thin dotted;
 	outline: 5px auto -webkit-focus-ring-color;
 	outline-offset: -2px
 }
@@ -4304,7 +4345,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 
 .nav {
-	padding-left: 0;
+	padding: 15px 15px;
 	margin-bottom: 0;
 	list-style: none
 }
@@ -4525,13 +4566,6 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	border-top-right-radius: 0
 }
 
-.navbar {
-	position: relative;
-	min-height: 50px;
-	margin-bottom: 20px;
-	border: 1px solid transparent
-}
-
 @media ( min-width :768px) {
 	.navbar {
 		border-radius: 4px
@@ -4574,20 +4608,20 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	.navbar-collapse.in {
 		overflow-y: visible
 	}
-	.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse,
+	.navbar-fixed-bottom .navbar-collapse, . .navbar-collapse,
 		.navbar-static-top .navbar-collapse {
 		padding-right: 0;
 		padding-left: 0
 	}
 }
 
-.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+.navbar-fixed-bottom .navbar-collapse, . .navbar-collapse
 	{
 	max-height: 340px
 }
 
 @media ( max-device-width :480px) and (orientation:landscape) {
-	.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse
+	.navbar-fixed-bottom .navbar-collapse, . .navbar-collapse
 		{
 		max-height: 200px
 	}
@@ -4646,7 +4680,7 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	float: left;
 	height: 50px;
 	padding: 15px 15px;
-	font-size: 18px;
+	font-size: 24px;
 	line-height: 20px
 }
 
@@ -4860,23 +4894,10 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	margin-bottom: 14px
 }
 
-.navbar-text {
-	margin-top: 15px;
-	margin-bottom: 15px
-}
 
-/* PMC Header text */
-.pmc-navbar-text {
-	float: left;
-	margin-top: 15px;
-	margin-bottom: 15px
-}
 
-/* PMC Header text */
-.navbar-text-right {
-	float: right;
-	margin-top: 15px;
-	margin-bottom: 15px
+.navbar-text:focus, .navbar-text:hover {
+	text-decoration: none
 }
 
 @media ( min-width :768px) {
@@ -4900,13 +4921,10 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 	}
 }
 
-.navbar-default {
-	background-color: #f8f8f8;
-	border-color: #e7e7e7
-}
+
 
 .navbar-default .navbar-brand {
-	color: #777
+	color: #ffffff
 }
 
 .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover
@@ -4916,28 +4934,25 @@ select[multiple].input-group-sm>.form-control, select[multiple].input-group-sm>.
 }
 
 .navbar-default .navbar-text {
-	color: #777
+	color: #ffffff
 }
 
-.navbar-default .navbar-nav>li>a {
-	color: #777
-}
 
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover
 	{
-	color: #333;
+	color: #ff8000;
 	background-color: transparent
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus,
 	.navbar-default .navbar-nav>.active>a:hover {
-	color: #555;
+	color: #ffffff;
 	background-color: #e7e7e7
 }
 
 .navbar-default .navbar-nav>.disabled>a, .navbar-default .navbar-nav>.disabled>a:focus,
 	.navbar-default .navbar-nav>.disabled>a:hover {
-	color: #ccc;
+	color: #ffffff;
 	background-color: transparent
 }
 
@@ -5432,7 +5447,6 @@ a.badge:focus, a.badge:hover {
 	padding-right: 15px;
 	padding-left: 15px;
 	border-radius: 6px
-	
 }
 
 .jumbotron .container {

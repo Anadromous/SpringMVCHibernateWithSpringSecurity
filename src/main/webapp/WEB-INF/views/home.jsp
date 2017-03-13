@@ -1,66 +1,73 @@
-<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@include file="/WEB-INF/views/template/bcHeader.jsp"%>
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img class="first-slide home-image"
-                 src="<c:url value="/resources/images/back1.jpg" />"
-                 alt="First slide">
+<div class="container">
 
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Welcome to Rapid River Exchange</h1>
-                    <p>Here you can browse and buy Rafts, Gear and rafting related Accessories. Order Now for
-                        Your Amazing New Kit!</p>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="second-slide home-image"
-                 src="<c:url value="/resources/images/back2.jpg" />"
-                 alt="Second slide">
+	<div class="row">
+		<div class="box">
+			<div class="col-lg-12 text-center">
+				<div id="carousel-example-generic" class="carousel slide">
+					<!-- Indicators -->
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>
+					<div class="carousel-inner" role="listbox">
+						<div class="item active">
+							<img class="first-slide home-image"
+								src="<c:url value="/resources/images/braque1.jpg" />"
+								alt="First slide">
 
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Facts You Should Know About Rafting</h1>
+							<div class="container">
+								<div class="carousel-caption">
+									<h1>The better I get to know men, the more I find myself loving dogs.</h1>
+									<p color:#fff>-Charles de Gaulle (former President of the French Republic)</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img class="second-slide home-image"
+								src="<c:url value="/resources/images/braque2.jpg" />"
+								alt="Second slide">
 
-                    <p>Fighting against the current of life won&#8217t get you very far. Go with the flow!</p>
-                    <!-- Going with the flow is one thing, being at the mercy of the river is another -->
+							<div class="container">
+								<div class="carousel-caption">
+									<h1>Dogs are not our whole life, but they make our lives whole.</h1>
 
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img class="third-slide home-image"
-                 src="<c:url value="/resources/images/back3.jpg" />"
-                 alt="Third slide">
+									<!-- Going with the flow is one thing, being at the mercy of the river is another -->
 
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>It's A River Affair</h1>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<img class="third-slide home-image"
+								src="<c:url value="/resources/images/braque3.jpg" />"
+								alt="Third slide">
 
-                    <p>Through rapids and rowing, Somehow we manage to survive in life.</p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+							<div class="container">
+								<div class="carousel-caption">
+									<h1>The world would be a nicer place if everyone had the ability to love as unconditionally as a dog.</h1>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="#myCarousel" role="button"
+						data-slide="prev"> <span
+						class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a> <a class="right carousel-control" href="#myCarousel" role="button"
+						data-slide="next"> <span
+						class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 <!-- /.carousel -->
 
 
@@ -70,47 +77,57 @@
 
 <div class="container marketing">
 
-    <!-- Three columns of text below the carousel -->
-    <div class="row">
-        <div class="col-lg-4">
-            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Boat" />"
-               role="button">
-                <img class="img-circle" src="<c:url value="/resources/images/instrument.jpg" />" alt="Instrument
+	<!-- Three columns of text below the carousel -->
+	<div class="row">
+		<div class="col-lg-4">
+			<a class="btn btn-default"
+				href="<c:url value="/product/productList?searchCondition=Apparrel" />"
+				role="button"> <img class="img-circle"
+				src="<c:url value="/resources/images/dog2.jpg" />"
+				alt="Instrument
                 Image" width="140" height="140"></a>
 
-            <h2>Instrument</h2>
-            <p>Well crafted and delicate instruments.</p>
+			<h2>Apparrel</h2>
+			<p>Dog Coats and Apparrel.</p>
 
-        </div><!-- /.col-lg-4 -->
+		</div>
+		<!-- /.col-lg-4 -->
 
 
 
-    <div class="row">
-        <div class="col-lg-4">
-            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Gear" />"
-               role="button">
-                <img class="img-circle" src="<c:url value="/resources/images/record.jpg" />" alt="Instrument
+		<div class="row">
+			<div class="col-lg-4">
+				<a class="btn btn-default"
+					href="<c:url value="/product/productList?searchCondition=Gear" />"
+					role="button"> <img class="img-circle"
+					src="<c:url value="/resources/images/dogbackpack.jpg" />"
+					alt="Instrument
                 Image" width="140" height="140"></a>
 
-            <h2>Discography</h2>
-            <p>An exceptional collections of music records in favor of the traditional and modern genre of jazz.</p>
+				<h2>Gear</h2>
+				<p>Backpacks and other Gear</p>
 
-        </div><!-- /.col-lg-4 -->
+			</div>
+			<!-- /.col-lg-4 -->
 
-    <div class="row">
-        <div class="col-lg-4">
-            <a class="btn btn-default" href="<c:url value="/product/productList?searchCondition=Accessory" />"
-               role="button">
-                <img class="img-circle" src="<c:url value="/resources/images/accessory.jpg" />" alt="Instrument
+			<div class="row">
+				<div class="col-lg-4">
+					<a class="btn btn-default"
+						href="<c:url value="/product/productList?searchCondition=Accessory" />"
+						role="button"> <img class="img-circle"
+						src="<c:url value="/resources/images/dogleash.jpg" />"
+						alt="Instrument
                 Image" width="140" height="140"></a>
 
-            <h2>Accessories</h2>
-            <p>All musical and related geeky goods..</p>
+					<h2>Accessories</h2>
+					<p>Collars, leashes and leads</p>
 
-        </div><!-- /.col-lg-4 -->
+				</div>
+				<!-- /.col-lg-4 -->
 
 
-    </div><!-- /.row -->
-
-    <%@include file="/WEB-INF/views/template/footer.jsp" %>
-
+			</div>
+			<!-- /.row -->
+	</div>
+	</div>
+			<%@include file="/WEB-INF/views/template/footer.jsp"%>

@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="/WEB-INF/views/template/header.jsp" %>
+<%@include file="/WEB-INF/views/template/bcHeader.jsp" %>
 <html>
 
 <head>
@@ -14,8 +14,6 @@
 
 <body>
  	<div class="generic-container">
-		<%@include file="authheader.jsp" %>
-
 		<div class="well lead">User Registration Form</div>
 	 	<form:form method="POST" modelAttribute="user" class="form-horizontal">
 			<form:input type="hidden" path="id" id="id"/>

@@ -46,8 +46,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<c:url value="/"/>">My Rafting
-					Store</a>
+				<a class="navbar-brand" href="<c:url value="/"/>">My Rafting Store</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -57,12 +56,7 @@
 					<li><a href="<c:url value="/product/productList/all" />">Products</a></li>
 					<li><a href="<c:url value="/about" />">About Us</a></li>
 				</ul>
-				<%-- <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form> --%>
+				
 				<ul class="nav navbar-nav navbar-text-right pull-right">
 					<sec:authorize access="authenticated" var="authenticated"></sec:authorize>
 					<c:choose>
