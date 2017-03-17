@@ -7,7 +7,9 @@ var cartApp = angular.module ("cartApp", []);
 cartApp.controller("cartCtrl", function ($scope, $http){
 
     $scope.refreshCart = function (cartId) {
-        $http.get('/SpringMVCHibernateWithSpringSecurityExample/rest/cart/'+$scope.cartId).success(function (data) {
+    	alert("refreshCart: "+cartId);
+        $http.get('/SpringMVCHibernateWithSpringSecurityExample/rest/cart/'+cartId).success(function (data) {
+        	alert("cart data yeah");
            $scope.cart=data;
         });
     };

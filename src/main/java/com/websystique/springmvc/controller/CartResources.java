@@ -48,10 +48,12 @@ public class CartResources {
     private ProductService productService;
 
     @RequestMapping("/{cartId}")
-    public @ResponseBody
-    Cart getCartById (@PathVariable(value = "cartId") int cartId) {
-    	logger.info("CartResources.getCartById...");
-        return cartService.getCartById(cartId);
+    @ResponseBody
+    public Cart getCartById (@PathVariable(value = "cartId") int cartId) {
+    	logger.info("CartResources.getCartById..."+cartId);
+    	Cart cart = cartService.getCartById(cartId);
+    	logger.info("Here is the cart: "+cart.getCartItems().get(0).toString());
+        return cart;
     }
 
     @RequestMapping(value = "/add/{productId}", method = RequestMethod.PUT)

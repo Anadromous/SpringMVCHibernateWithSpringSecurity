@@ -15,9 +15,9 @@
 <link rel="icon" href="../../favicon.ico">
 <title>My Rafting Store</title>
 <!-- Angular JS -->
-	<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <%--Jquery--%>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <%--Data Table--%>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/global.js"></script>

@@ -21,8 +21,6 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
 <!-- Script to Activate the Carousel -->
 <script>

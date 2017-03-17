@@ -38,7 +38,7 @@ public class CartController {
 
     @RequestMapping("/{cartId}")
     public String getCartRedirect(@PathVariable (value = "cartId") int cartId, Model model) {
-    	logger.info("CustomerService.getCartRedirect.......");
+    	logger.info("CustomerService.getCartRedirect......."+cartId);
         model.addAttribute("cartId", cartId);
 
         return "cart";
