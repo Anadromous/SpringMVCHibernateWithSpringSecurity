@@ -13,9 +13,9 @@ import java.util.List;
 @Entity(name="CART")
 public class Cart implements Serializable {
 
-    private static final long serialVersionUID = 3940548625296145582L;
+	private static final long serialVersionUID = -5888990659618507245L;
 
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="cart_id")
     private int cartId;

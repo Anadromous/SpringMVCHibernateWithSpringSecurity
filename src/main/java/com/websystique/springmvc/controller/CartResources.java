@@ -9,12 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 import com.websystique.springmvc.model.Cart;
 import com.websystique.springmvc.model.CartItem;
@@ -47,9 +43,8 @@ public class CartResources {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/{cartId}")
-    @ResponseBody
-    public Cart getCartById (@PathVariable(value = "cartId") int cartId) {
+    @RequestMapping(value = "/{cartId}", method = RequestMethod.GET)
+    public @ResponseBody Cart getCartById (@Valid @RequestBody @PathVariable(value = "cartId") int cartId) {
     	logger.info("CartResources.getCartById..."+cartId);
     	Cart cart = cartService.getCartById(cartId);
     	logger.info("Here is the cart: "+cart.getCartItems().get(0).toString());

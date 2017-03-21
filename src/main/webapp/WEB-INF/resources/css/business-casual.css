@@ -85,10 +85,11 @@ hr {
 }
 
 .box-product {
+	width: 100%;
     margin-bottom: 20px;
     padding: 15px 15px;
     background: #c0c0c0;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.9)    
 }
 
 .intro-text {

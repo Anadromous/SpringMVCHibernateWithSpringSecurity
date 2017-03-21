@@ -13,7 +13,7 @@
             </div>
         </section>
 
-        <section class="container" ng-app="cartApp">
+        <section ng-app="cartApp">
             <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
             <div>
                 <a class="btn btn-danger pull-left" ng-click="clearCart()"><span
