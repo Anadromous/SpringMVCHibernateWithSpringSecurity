@@ -79,14 +79,6 @@ public class CartResources {
         cartItemService.addCartItem(cartItem);
     }
 
-    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void removeItem (@PathVariable(value = "productId") int productId) {
-    	logger.info("CartResources.removeItem...");
-        CartItem cartItem = cartItemService.getCartItemByProductId(productId);
-        cartItemService.removeCartItem(cartItem);
-
-    }
 
     @RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
