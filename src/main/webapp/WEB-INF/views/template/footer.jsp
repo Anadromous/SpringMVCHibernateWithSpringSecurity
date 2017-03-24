@@ -1,8 +1,7 @@
 <!-- FOOTER -->
 <footer>
-	<div class="container">
-		<div class="row" span="100%">
-			<div class="col-lg-12 text-center">
+		<nav class="navbar navbar-default">
+			<div class="container">
 				<p class="pull-right">
 					<a href="#">Back to top</a>
 				</p>
@@ -12,8 +11,7 @@
 					<a href="#">Terms</a>
 				</p>
 			</div>
-		</div>
-	</div>
+		</nav>
 </footer>
 
 

@@ -56,6 +56,9 @@ public class Cart implements Serializable {
 	}
 
 	public double getGrandTotal() {
+		for (CartItem item : getCartItems()) {
+            grandTotal+=item.getTotalPrice();
+        }
         return grandTotal;
     }
 

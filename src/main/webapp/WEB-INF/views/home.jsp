@@ -17,7 +17,7 @@
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
 							<img class="first-slide home-image"
-								src="<c:url value="/resources/images/braque1.jpg" />"
+								src="<c:url value="/resources/images/braque6.jpg" />"
 								alt="First slide">
 
 							<div class="container">
@@ -128,6 +128,7 @@
 
 			</div>
 			<!-- /.row -->
+	</div>
 	</div>
 	</div>
 			<%@include file="/WEB-INF/views/template/footer.jsp"%>

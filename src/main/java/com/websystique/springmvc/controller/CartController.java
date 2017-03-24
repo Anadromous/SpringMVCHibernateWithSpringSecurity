@@ -54,6 +54,7 @@ public class CartController {
     	logger.info("CustomerService.getCartRedirect......."+cartId);
         //model.addAttribute("cartId", cartId);
     	Cart cart = cartService.getCartById(cartId);
+    	model.addAttribute("grandTotal", cart.getGrandTotal());
     	model.addAttribute("cartItems", cart.getCartItems());
         return "cart";
     }
