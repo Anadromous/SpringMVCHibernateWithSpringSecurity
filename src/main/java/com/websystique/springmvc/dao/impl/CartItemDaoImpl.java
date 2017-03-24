@@ -3,11 +3,7 @@ package com.websystique.springmvc.dao.impl;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +11,6 @@ import com.websystique.springmvc.dao.AbstractDao;
 import com.websystique.springmvc.dao.CartItemDao;
 import com.websystique.springmvc.model.Cart;
 import com.websystique.springmvc.model.CartItem;
-import com.websystique.springmvc.model.Customer;
 
 /**
  * Created by pchapman on 1/25/2017.
@@ -45,9 +40,16 @@ public class CartItemDaoImpl extends AbstractDao<Integer, CartItem> implements C
 
     public CartItem getCartItemByProductId (int productId) {
     	Criteria crit = createEntityCriteria();
-    	crit.add(Restrictions.eq("productId", productId));
+    	crit.add(Restrictions.eq("CartItem.productId", productId));
         return (CartItem) crit.uniqueResult();
 
     }
+
+	@Override
+	public CartItem getCartItemById(int cartItemId) {
+		Criteria crit = createEntityCriteria();
+		crit.add(Restrictions.eq("cartItemId", cartItemId));
+		return (CartItem) crit.uniqueResult();
+	}
 }
 

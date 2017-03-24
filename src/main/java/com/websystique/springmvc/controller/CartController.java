@@ -3,15 +3,12 @@ package com.websystique.springmvc.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.websystique.springmvc.model.Cart;
 import com.websystique.springmvc.model.CartItem;
@@ -59,13 +56,21 @@ public class CartController {
         return "cart";
     }
     
-    @RequestMapping(value = "/remove/{productId}", method = RequestMethod.PUT)
-    public void removeItem (@PathVariable(value = "productId") int productId) {
-    	logger.info("CartResources.removeItem...");
-        CartItem cartItem = cartItemService.getCartItemByProductId(productId);
+    @RequestMapping(value = "/remove/{cartItemId}")
+    public String removeItem (@PathVariable(value = "cartItemId") int cartItemId) {
+    	logger.info("CartResources.removeItem..."+cartItemId);
+    	CartItem cartItem = cartItemService.getCartItemById(cartItemId);
+    	logger.info("Here is the cartItem: "+cartItem.toString());
         cartItemService.removeCartItem(cartItem);
-        
+        return "redirect:/customer/cart/"+cartItem.getCart().getCartId();
     }
 
+    @RequestMapping(value = "/empty/{cartId}")
+    public String clearCart(@PathVariable(value = "cartId") int cartId) {
+    	logger.info("CartResources.clearCart...");
+        Cart cart = cartService.getCartById(cartId);
+        cartItemService.removeAllCartItems(cart);
+        return "redirect:/customer/cart/"+cartId;
+    }
 }
 

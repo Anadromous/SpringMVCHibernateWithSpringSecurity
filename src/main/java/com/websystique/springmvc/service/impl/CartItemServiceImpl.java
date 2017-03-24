@@ -35,4 +35,11 @@ public class CartItemServiceImpl implements CartItemService{
     public CartItem getCartItemByProductId (int productId) {
         return cartItemDao.getCartItemByProductId(productId);
     }
+
+	@Override
+	public CartItem getCartItemById(int cartItemId) {
+		return cartItemDao.getCartItemById(cartItemId);
+	}
+    
+    
 }

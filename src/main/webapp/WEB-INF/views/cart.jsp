@@ -13,16 +13,14 @@
             </div>
         </section>
 
-<%--         <section ng-app="cartApp">
-            <div ng-controller = "cartCtrl" ng-init="initCartId('${cartId}')">
             <div>
-                <a class="btn btn-danger pull-left" ng-click="clearCart()"><span
+                <a href="<spring:url value="/customer/cart/empty/${cartId}" />" class="btn btn-danger pull-left"><span
                         class="glyphicon glyphicon-remove-sign"></span>Clear Cart</a>
+                        
                 <a href="<spring:url value="/order/${cartId}"/>"
                    class="btn btn-success pull-right"><span class="glyphicon-shopping-cart glyphicon"></span> Check out
                 </a>
-            </div> --%>
-
+			</div>
             <table class="table table-hover">
                 <tr>
                     <th>Product</th>
@@ -37,7 +35,7 @@
 	                    <td>${cartItem.product.productPrice}</td>
 	                    <td>${cartItem.quantity}</td>
 	                    <td>${cartItem.totalPrice}</td>
-	                    <td><a href="<spring:url value="/customer/cart/remove/${cartItem.product.productId}" />"
+	                    <td><a href="<spring:url value="/customer/cart/remove/${cartItem.cartItemId}" />"
                     		><span class="glyphicon glyphicon-remove"></span>remove</a></td>
 	                </tr>
                 </c:forEach>
@@ -52,10 +50,8 @@
 
             <a href="<spring:url value="/product/productList/all" />" class="btn btn-default">Continue Shopping</a>
             </div>
-        </section>
 
     </div>
-</div>
 
 <script src="<c:url value="/resources/js/controller.js" /> "></script>
 <%@include file="/WEB-INF/views/template/footer.jsp" %>
